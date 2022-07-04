@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lohith GS</title>
+    <link rel="stylesheet" href="main.css"/>
+    
+    
+</head>
+<body>
+    <script type="module">
+
+        import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js';
+            //Declare three.js variables
+	var camera, scene, renderer, stars=[];
+	 
+     //assign three.js objects to each variable
+     function init(){
+          
+         //camera
+         camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 1000);
+         camera.position.z = 1;	 
+ 
+         //scene
+         scene = new THREE.Scene();
+          
+         //renderer
+         renderer = new THREE.WebGLRenderer();
+         //set the size of the renderer
+         renderer.setSize( window.outerWidth, window.outerHeight );
+          
+         //add the renderer to the html document body
+         document.body.appendChild( renderer.domElement );
+     }
+ 
+ 
+     function addSphere(){
+ 
+                 // The loop will move from z position of -1000 to z position 1000, adding a random particle at each position. 
+                 for ( var z= -1000; z < 3500; z+=20 ) {
+         
+                     // Make a sphere (exactly the same as before). 
+                     var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
+                     var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+                     var sphere = new THREE.Mesh(geometry, material)
+         
+                     // This time we give the sphere random x and y positions between -500 and 500
+                     sphere.position.x = Math.random() * 1000 - 500;
+                     sphere.position.y = Math.random() * 1000 - 500;
+         
+                     // Then set the z position to where it is in the loop (distance of camera)
+                     sphere.position.z = z;
+         
+                     // scale it up a bit
+                     sphere.scale.x = sphere.scale.y = 2;
+         
+                     //add the sphere to the scene
+                     scene.add( sphere );
+         
+                     //finally push it to the stars array 
+                     stars.push(sphere); 
+                 }
+     }
+ 
+     function animateStars() { 
+                 
+         // loop through each star
+         for(var i=0; i<stars.length; i++) {
+             
+             let star = stars[i]; 
+                 
+             // and move it forward dependent on the mouseY position. 
+             star.position.z +=  i/10;
+                 
+             // if the particle is too close move it to the back
+             if(star.position.z>1000) star.position.z-=2000; 
+             
+         }
+     
+     }
+ 
+     function render() {
+         //get the frame
+         requestAnimationFrame( render );
+ 
+         //render the scene
+         renderer.render( scene, camera );
+             animateStars();
+ 
+     }
+     
+     init();
+     addSphere();
+     render();
+</script> 
+<script>
+    setTimeout(function() {
+  document.getElementById("content").style.display = "block";
+  document.getElementById("titles").style.display = "none";
+}, 35000);
+</script> 
+          <p id="start">A short time ago I developed this in a IDE very, very far&hellip;</p>
+          <img src='title2.bmp' id="image-style" alt="title"/>
+          <div id="titles">
+            <div id="titlecontent">
+              <p class="center">About Me...<br />
+                Front-end Web Developer</p>
+              <p>Well-qualified Full Stack Developer familiar with wide range of
+                programming utilities and languages. Knowledgeable of
+                
+                frontend and backend development requirements. Handles
+                any part of process with ease. Collaborative team player with
+                
+                excellent technical abilities offering 2 years of related
+                experience. Currently working at TCS.
+                </p>
+              <p class="center">May the force be with you!</p>  
+              </div>
+          </div>
+        <div id="content">
+            <img src='title2.bmp' class="image-style1" alt="title"/>
+            <div class="content-container">
+                <div>
+                    <h2>About Me</h2>
+                        <p class="text-style">Front-end Web Developer</p>
+                      <p class="text-style">Well-qualified Full Stack Developer familiar with wide range of
+                        programming utilities and languages. Knowledgeable of
+                        
+                        frontend and backend development requirements. Handles
+                        any part of process with ease. Collaborative team player with
+                        
+                        excellent technical abilities offering 2 years of related
+                        experience. Currently working at TCS.
+                        May the force be with you!
+                        </p>
+                </div>
+                <div>
+                    <h2>Skills</h2>
+                    <div style="float:left"><h3>Programming Languages</h3><p class="text-style">JavaScript<br/>Java<br/>Python<br/>C/C++<br/>SQL<br/>GraphQL<br/></p></div>
+                    <div style="float:left"><h3>Frameworks/Libraries</h3><p class="text-style">React JS<br/>Spring Boot<br/>Flask<br/></p></div>
+                </div>
+            </div>
+            <div class="bottom-container">
+                <div style="align-items: center;">    
+                    <p class="bottom-style">Click on the lightsaber to download my resume.</p><br/>
+                    <div class="lightsaber lightsaber--obi">
+                        <label for="obi"></label>
+                        <div class="switch"></div>
+                        <input type="checkbox" id="obi"/>
+                        <div class="plasma"></div>
+                      </div>
+                    <br/>
+                </div>
+                <div style="float:right">
+                    
+                    <a href="https://www.linkedin.com/in/lohith-gs-dev" style="float:right"><img src='linkedin.png' class="contact-icon" alt='linkedin'/></a>
+                    <a href="https://www.instagram.com/invites/contact/?i=13hcxfwrcuaiw&utm_content=3iqhijl" style="float:right"><img src='insta.png' class="contact-icon" alt='linkedin'/></a>
+                    <p style="float:right">Find me on</p>
+                </div>
+            </div>
+            
+        </div>
+</body>
+</html>
