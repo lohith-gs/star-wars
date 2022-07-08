@@ -30,7 +30,7 @@
          renderer.setSize( window.outerWidth, window.outerHeight );
           
          //add the renderer to the html document body
-         document.body.appendChild( renderer.domElement );
+         document.getElementById("main-div").appendChild( renderer.domElement );
      }
  
  
@@ -97,8 +97,9 @@
     setTimeout(function() {
   document.getElementById("content").style.display = "block";
   document.getElementById("titles").style.display = "none";
-}, 35000);
+}, 5000);
 </script> 
+        <div id="main-div">
           <p id="start">A short time ago I developed this in a IDE very, very far&hellip;</p>
           <img src='title2.bmp' id="image-style" alt="title"/>
           <div id="titles">
@@ -158,7 +159,7 @@
                     <p style="float:right">Find me on</p>
                 </div>
             </div>
-            
+        </div>     
         </div>
 </body>
 </html>
