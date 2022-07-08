@@ -228,6 +228,7 @@ p#start
 	animation: fadeIn ease 5s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
+	
 }
 
 @keyframes fadeIn{
