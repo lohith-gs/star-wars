@@ -16,6 +16,14 @@ body, html
 	overflow: hidden;
 }
 
+canvas{
+	display: block;
+}
+
+#main-div{
+	width: 100vw;
+	height: 100vh;
+}
 
 
 p#start
