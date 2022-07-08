@@ -13,7 +13,7 @@ body, html
 	font-weight: 700;
 	color: #ffe81f;
 	background-color: #000;
-	overflow: hidden;
+	overflow: auto;
 }
 
 canvas{
@@ -265,6 +265,10 @@ p#start
 	color:#ffe81f;
 }
 
+.skill-item{
+	float: left;
+}
+
 h2{
 	margin:25px;
 }
@@ -359,3 +363,95 @@ h3{
   background: green;
   background: linear-gradient(to top, deepskyblue 0%, white 30%, white 50%, white 70%, deepskyblue 100%);
 }  
+
+@media only screen and (max-width:700px) {
+	#main-div{
+		width: 100%;
+		display: block;
+	}
+
+		p#start
+	{
+		position: absolute;
+		width: 16em;
+		font-size: 100%;
+		font-weight: 400;
+		margin: 75% 20%;
+		text-align: center;
+		color: #4ee;
+		opacity: 0;
+		z-index: 1;
+		-webkit-animation: intro 2s ease-out;
+		-moz-animation: intro 2s ease-out;
+		-ms-animation: intro 2s ease-out;
+		-o-animation: intro 2s ease-out;
+		animation: intro 2s ease-out;
+	}
+
+	#titles
+{
+	position: absolute;
+	width: 12em;
+	height: 50em;
+	bottom: 0;	
+	font-size: 200%;
+	left: 75%;
+	text-align: justify;
+	overflow: hidden;
+	-webkit-transform-origin: 50% 100%;
+	-moz-transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	-o-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transform: perspective(300px) rotateX(25deg);
+	-moz-transform: perspective(300px) rotateX(25deg);
+	-ms-transform: perspective(300px) rotateX(25deg);
+	-o-transform: perspective(300px) rotateX(25deg);
+	transform: perspective(300px) rotateX(25deg);
+}
+
+	#content{
+		display: none;
+		background-image: url('sd1.png');
+		background-position-x:right;
+		background-position-y:10%;
+		background-repeat: no-repeat;
+		background-size: 40%;
+		animation: fadeIn ease 5s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		
+	}
+
+.content-container{
+	background-image: none;
+	display: block;
+	color:#ffe81f;
+}
+	.about{
+		width: 100%;
+	}
+
+	.skills{
+		width: 100%;
+		background-image: url('falcon.png');
+		background-repeat: no-repeat;
+		background-position-y:center;
+		background-position-x: 80%;
+		background-size: 30%;
+	}
+
+	.skill-item{
+		float: none;
+	}
+
+	.bottom-container{
+		margin-top: 50px;
+		margin-left: 25px;
+		display: block;
+		color:#ffe81f;
+	}
+
+
+	
+}
