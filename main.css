@@ -13,7 +13,8 @@ body, html
 	font-weight: 700;
 	color: #ffe81f;
 	background-color: #000;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 canvas{
